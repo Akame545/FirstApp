@@ -32,7 +32,7 @@ public class Splash extends AppCompatActivity {
 
         //implements and starts animation
         ImageView logo = findViewById(R.id.logosplash);
-        Animation myanim = AnimationUtils.loadAnimation(this, R.anim.fadein);
+        Animation myanim = AnimationUtils.loadAnimation(this, R.anim.blink);
         logo.startAnimation(myanim);
 
       
@@ -59,7 +59,7 @@ public class Splash extends AppCompatActivity {
                         .this, Login.class);
                 startActivity(intent);
             }
-        }, 3000);
+        }, 2000);
 
 
     }
