@@ -2,24 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/item10"
+        android:id="@+id/menu_user"
         android:title="User"
         android:icon="@drawable/ic_person"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/item20"
+        android:id="@+id/menu_settings"
         android:title="Settings"
         android:icon="@drawable/ic_settings"
         app:showAsAction="ifRoom|withText" />
 
     <item
-        android:id="@+id/item30"
+        android:id="@+id/menu_aboutus"
         android:title="About us"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/item40"
+        android:id="@+id/menu_singout"
         android:title="Signout"
         app:showAsAction="never" />
-
 </menu>

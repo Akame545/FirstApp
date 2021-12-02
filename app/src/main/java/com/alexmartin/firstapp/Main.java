@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -20,6 +21,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class Main extends AppCompatActivity {
     private WebView miVisorWeb;
     private SwipeRefreshLayout swipeLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,12 +37,83 @@ public class Main extends AppCompatActivity {
         swipeLayout = (SwipeRefreshLayout) findViewById(R.id.refresh_content);
         swipeLayout.setOnRefreshListener(mOnRefreshListener);
 
+//      Opciones WebView
         miVisorWeb = (WebView) findViewById(R.id.vistaweb);
         miVisorWeb.setInitialScale(220);
         miVisorWeb.getSettings().setBuiltInZoomControls(false);
         miVisorWeb.loadUrl("https://thiscatdoesnotexist.com/");
 
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        if (id == R.id.menu_user) {
+           showAlertDialogButtonClickedUser(Main.this);
+        }
+        if (id == R.id.menu_settings) {
+            Toast toast = Toast.makeText(this, "Work-in-progress", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+
+        if (id == R.id.menu_aboutus) {
+            showAlertDialogButtonClicked(Main.this);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+//  Alert dialog clicked user
+    public void showAlertDialogButtonClickedUser(Main mainActivity) {
+
+//      Setup del Alert builder
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
+
+//      Diálogo estándar
+        builder.setTitle(Login.getLogin_name());
+        builder.setMessage("Where do you want to go?");
+        builder.setIcon(R.drawable.ic_person);
+
+//      Si clickas fuera de la alerta se cancela ↓
+        builder.setCancelable(true);
+
+
+//      Botones de la alerta ↓
+//      Botón derecho ↓
+        builder.setPositiveButton("NoHaceNada", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+//              Toast nada interesante ↓
+                Toast t_nada = Toast.makeText(Main.this, "Nada hecho", Toast.LENGTH_SHORT);
+                t_nada.show();
+                dialog.dismiss();
+            }
+        });
+//      Botón central ↓
+        builder.setNegativeButton("Signout", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(Main.this, Signup.class);
+                startActivity(intent);
+                dialog.dismiss();
+            }
+        });
+//      Botón izquierdo ↓
+        builder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+//      Creacion y muestra del dialogo
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+//  Alert dialog clicked singout
     public void showAlertDialogButtonClicked(Main mainActivity) {
 
         // setup the alert builder
@@ -48,7 +121,7 @@ public class Main extends AppCompatActivity {
 
 //        //el dialogo estandar tiene título/icono pero podemos sustituirlo por un XML a medida
         builder.setTitle("Hey Listen!!");
-        builder.setMessage("Where do you go");
+        builder.setMessage("Where did you go?");
         builder.setIcon(R.drawable.ic_person);
         builder.setCancelable(false);
 
@@ -58,7 +131,7 @@ public class Main extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // do something like...
-                Intent intent = new Intent(Main.this, Signup.class);
+                Intent intent = new Intent(Main.this, Login.class);
                 startActivity(intent);
                 dialog.dismiss();
 
@@ -89,6 +162,7 @@ public class Main extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
     protected SwipeRefreshLayout.OnRefreshListener
             mOnRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override
@@ -101,6 +175,7 @@ public class Main extends AppCompatActivity {
             swipeLayout.setRefreshing(false);
         }
     };
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -108,48 +183,24 @@ public class Main extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        if (id == R.id.item10) {
-//            showAlertDialogButtonClicked(Main.this);
 
-            Toast toast = Toast.makeText(this, "Infecting", Toast.LENGTH_LONG);
-            toast.show();
-
-        }
-        if (id == R.id.item20) {
-            Toast toast = Toast.makeText(this, "Fixing", Toast.LENGTH_LONG);
-            toast.show();
-        }
-
-        if (id == R.id.item40) {
-            showAlertDialogButtonClicked(Main.this);
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
             case R.id.item1:
-//                Toast toast = Toast.makeText(this, "Item copied",
-//                        Toast.LENGTH_LONG);
-//                toast.show();
+                    /*Toast toast = Toast.makeText(this, "Item copied",
+                            Toast.LENGTH_LONG);
+                    toast.show();*/
 
-                ConstraintLayout mLayout =  findViewById(R.id.MainConstraint);
+                final ConstraintLayout mLayout =  findViewById(R.id.MainConstraint);
 
                 Snackbar snackbar = Snackbar
-                        .make(mLayout, "fancy a Snack while you refresh?", Snackbar.LENGTH_LONG)
-                        .setAction("Deshacer", new View.OnClickListener() {
+                        .make(mLayout, "Item copied", Snackbar.LENGTH_LONG)
+                        .setAction("UNDO", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Snackbar snackbar1 = Snackbar.make(mLayout, "Action is restored!", Snackbar.LENGTH_SHORT);
+                                Snackbar snackbar1 = Snackbar.make(mLayout, "Item not copied", Snackbar.LENGTH_SHORT);
                                 snackbar1.show();
                             }
                         });
@@ -160,14 +211,13 @@ public class Main extends AppCompatActivity {
                 return true;
 
             case R.id.item2:
-                Toast toast2 = Toast.makeText(this, "Downloading item...",
-                        Toast.LENGTH_LONG);
+                Toast toast2 =
+                        Toast.makeText(this, "Item download", Toast.LENGTH_SHORT);
                 toast2.show();
                 return true;
 
             default:
-                return super.onContextItemSelected(item);
         }
-
+        return super.onContextItemSelected(item);
     }
 }
