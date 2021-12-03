@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
-        <item>@font/fredericka_the_great</item>
-        <item>@font/montserrat</item>
-        <item>@font/noto_sans</item>
+        <item>@font/comfortaa_bold</item>
+        <item>@font/comfortaa_regular</item>
+        <item>@font/comfortaa_light</item>
+        <item>@font/comfortaa_medium</item>
+        <item>@font/comfortaa_semi_bold</item>
     </array>
 </resources>

@@ -13,6 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Username"
+        android:fontFamily="@font/comfortaa_regular"
         app:layout_constraintEnd_toEndOf="@+id/sup_guideline_right"
         app:layout_constraintStart_toStartOf="@+id/sup_guideline_left"
         app:layout_constraintTop_toTopOf="@+id/sup_guideline_top"
@@ -30,12 +31,14 @@
         android:id="@+id/sup_til2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Username"
+        android:hint="Password"
+        android:fontFamily="@font/comfortaa_regular"
         app:layout_constraintEnd_toStartOf="@+id/sup_guideline_right"
         app:layout_constraintStart_toStartOf="@+id/sup_guideline_left"
         app:layout_constraintTop_toBottomOf="@id/sup_til1"
         android:layout_marginTop="20dp"
-        app:startIconDrawable="@drawable/ic_person">
+        app:passwordToggleEnabled="true"
+        app:startIconDrawable="@drawable/ic_lock">
 
         <EditText
             android:id="@+id/sup_edt_2"
@@ -49,12 +52,14 @@
         android:id="@+id/sup_til3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Username"
+        android:hint="Confirm-Password"
+        android:fontFamily="@font/comfortaa_regular"
         app:layout_constraintEnd_toStartOf="@+id/sup_guideline_right"
         app:layout_constraintStart_toStartOf="@+id/sup_guideline_left"
         app:layout_constraintTop_toBottomOf="@id/sup_til2"
-        android:layout_marginTop="20dp"
-        app:startIconDrawable="@drawable/ic_person">
+        app:passwordToggleEnabled="true"
+        app:startIconDrawable="@drawable/ic_lock"
+        android:layout_marginTop="20dp">
 
         <EditText
             android:id="@+id/sup_edt_3"
@@ -63,13 +68,24 @@
             android:background="@color/white_alpha"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/sup_confirm"
+        style="@style/mybutton"
+        android:layout_marginTop="40dp"
+        android:onClick="openMain"
+        android:text="Confirmar"
+        android:fontFamily="@font/comfortaa_bold"
+        app:layout_constraintStart_toStartOf="@id/sup_guideline_left"
+        app:layout_constraintEnd_toEndOf="@id/sup_guideline_right"
+        app:layout_constraintTop_toBottomOf="@id/sup_til3" />
+
     <!--GuideLine Arriba-->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/sup_guideline_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.20" />
+        app:layout_constraintGuide_percent="0.25" />
     <!--GuideLine Derecho-->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/sup_guideline_left"

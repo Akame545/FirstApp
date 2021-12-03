@@ -4,15 +4,18 @@
     <item
         android:id="@+id/menu_user"
         android:title="User"
+        android:fontFamily="@font/comfortaa_regular"
         android:icon="@drawable/ic_person"
         app:showAsAction="ifRoom|withText" />
     <item
         android:id="@+id/menu_aboutus"
         android:title="About us"
+        android:fontFamily="@font/comfortaa_regular"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_singout"
         android:title="Signout"
+        android:fontFamily="@font/comfortaa_regular"
         app:showAsAction="never" />
 </menu>

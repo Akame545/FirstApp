@@ -95,7 +95,7 @@ public class Main extends AppCompatActivity {
         builder.setNegativeButton("Signout", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(Main.this, Signup.class);
+                Intent intent = new Intent(Main.this, Login.class);
                 startActivity(intent);
                 dialog.dismiss();
             }

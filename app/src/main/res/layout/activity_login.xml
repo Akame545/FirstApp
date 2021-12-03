@@ -20,6 +20,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Username"
+        android:fontFamily="@font/comfortaa_regular"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintTop_toBottomOf="@id/logo"
@@ -39,6 +40,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Password"
+        android:fontFamily="@font/comfortaa_regular"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintEnd_toEndOf="@+id/guideline_right"
         app:layout_constraintTop_toBottomOf="@+id/til1"
@@ -87,6 +89,7 @@
         android:layout_marginTop="40dp"
         android:onClick="openMain"
         android:text="confirmar"
+        android:fontFamily="@font/comfortaa_regular"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintTop_toBottomOf="@id/til2" />
