@@ -1,2 +1,2 @@
 # FirstApp
-![Animacion](AnimationApp.gif)
+![Animacion](AnimationFunctions.gif)
