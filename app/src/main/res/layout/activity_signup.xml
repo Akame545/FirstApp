@@ -4,18 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     tools:context=".Signup">
 
 
-    <TextView
-        android:id="@+id/tv_succes"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/sup_til1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        app:layout_constraintEnd_toEndOf="@+id/sup_guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/sup_guideline_left"
+        app:layout_constraintTop_toTopOf="@+id/sup_guideline_top"
+        app:startIconDrawable="@drawable/ic_person">
+
+        <EditText
+            android:id="@+id/sup_edt_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_alpha"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/sup_til2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        app:layout_constraintEnd_toStartOf="@+id/sup_guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/sup_guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/sup_til1"
+        android:layout_marginTop="20dp"
+        app:startIconDrawable="@drawable/ic_person">
+
+        <EditText
+            android:id="@+id/sup_edt_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_alpha"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/sup_til3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        app:layout_constraintEnd_toStartOf="@+id/sup_guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/sup_guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/sup_til2"
+        android:layout_marginTop="20dp"
+        app:startIconDrawable="@drawable/ic_person">
+
+        <EditText
+            android:id="@+id/sup_edt_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_alpha"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--GuideLine Arriba-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/sup_guideline_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Te has registrado satisfactoriamente"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="40dp"
-        android:textAlignment="center"/>
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.20" />
+    <!--GuideLine Derecho-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/sup_guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2" />
+    <!--GuideLine Izquierdo-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/sup_guideline_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
 </androidx.constraintlayout.widget.ConstraintLayout>

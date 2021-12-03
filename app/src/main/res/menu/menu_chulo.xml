@@ -5,13 +5,7 @@
         android:id="@+id/menu_user"
         android:title="User"
         android:icon="@drawable/ic_person"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/menu_settings"
-        android:title="Settings"
-        android:icon="@drawable/ic_settings"
         app:showAsAction="ifRoom|withText" />
-
     <item
         android:id="@+id/menu_aboutus"
         android:title="About us"

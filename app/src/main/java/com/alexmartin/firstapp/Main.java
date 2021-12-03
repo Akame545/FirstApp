@@ -3,11 +3,13 @@ package com.alexmartin.firstapp;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
-import android.widget.Switch;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -27,7 +29,7 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//      Creacion del objeto WebView vinculado con el id
+//      Creación del objeto WebView vinculado con el id
         WebView main_content = (WebView) findViewById(R.id.vistaweb);
 
 //      Registro del menú contextual.
@@ -42,27 +44,24 @@ public class Main extends AppCompatActivity {
         miVisorWeb.setInitialScale(220);
         miVisorWeb.getSettings().setBuiltInZoomControls(false);
         miVisorWeb.loadUrl("https://thiscatdoesnotexist.com/");
-
     }
+
+    //  Opciones al seleccionar un elemnto del menú ↓
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        if (id == R.id.menu_user) {
-           showAlertDialogButtonClickedUser(Main.this);
+        switch (id) {
+            case R.id.menu_user:
+                showAlertDialogButtonClickedUser(Main.this);
+                break;
+            case R.id.menu_aboutus:
+                Toast toast1 = Toast.makeText(this, "Work-in-progress", Toast.LENGTH_SHORT);
+                toast1.show();
+                break;
+            case R.id.menu_singout:
+                showAlertDialogButtonClicked(Main.this);
+                break;
         }
-        if (id == R.id.menu_settings) {
-            Toast toast = Toast.makeText(this, "Work-in-progress", Toast.LENGTH_SHORT);
-            toast.show();
-        }
-
-        if (id == R.id.menu_aboutus) {
-            showAlertDialogButtonClicked(Main.this);
-        }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -113,110 +112,87 @@ public class Main extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
 //  Alert dialog clicked singout
     public void showAlertDialogButtonClicked(Main mainActivity) {
-
-        // setup the alert builder
         MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
 
-//        //el dialogo estandar tiene título/icono pero podemos sustituirlo por un XML a medida
         builder.setTitle("Hey Listen!!");
-        builder.setMessage("Where did you go?");
-        builder.setIcon(R.drawable.ic_person);
+        builder.setMessage("Are you sure about that?");
+        builder.setIcon(R.drawable.ic_monigote_foreground);
         builder.setCancelable(false);
 
-
-        // add the buttons
-        builder.setPositiveButton("Positive", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Yeah!!", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // do something like...
                 Intent intent = new Intent(Main.this, Login.class);
                 startActivity(intent);
                 dialog.dismiss();
 
             }
         });
-
-        builder.setNegativeButton("Negative", new DialogInterface.OnClickListener() {
+        builder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
-                // do something like...
-
-                dialog.dismiss();
+                dialog.cancel();
             }
         });
-
-        builder.setNeutralButton("Neutral", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-                // do something like...
-
-                dialog.dismiss();
-            }
-        });
-
-        // create and show the alert dialog
         AlertDialog dialog = builder.create();
         dialog.show();
     }
 
+//  Funciones al refrescar la web.
     protected SwipeRefreshLayout.OnRefreshListener
             mOnRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override
         public void onRefresh() {
-
-
             Toast toast0 = Toast.makeText(Main.this, "Refreshed", Toast.LENGTH_SHORT);
             toast0.show();
             miVisorWeb.reload();
             swipeLayout.setRefreshing(false);
         }
     };
-
+//  Creador del menú de opciones
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_chulo, menu);
         return true;
     }
-
-
-
+//  Creador del ContextMenu con el inflater.
     @Override
-    public boolean onContextItemSelected(MenuItem item) {
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        MenuInflater inflater = getMenuInflater();
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+        menu.setHeaderTitle("Chose an option");
+        inflater.inflate(R.menu.menu_context, menu);
+    }
+//  Manejo de cada item seleccionado
+    @Override
+    public boolean onContextItemSelected(MenuItem item){
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch (item.getItemId()) {
-            case R.id.item1:
-                    /*Toast toast = Toast.makeText(this, "Item copied",
-                            Toast.LENGTH_LONG);
-                    toast.show();*/
-
-                final ConstraintLayout mLayout =  findViewById(R.id.MainConstraint);
-
+            case R.id.menu_copy:
+                final ConstraintLayout mLayout = findViewById(R.id.MainConstraint);
+//              Forma de crear un snackbar ↓
                 Snackbar snackbar = Snackbar
-                        .make(mLayout, "Item copied", Snackbar.LENGTH_LONG)
-                        .setAction("UNDO", new View.OnClickListener() {
+                        .make(mLayout, "Image copied", Snackbar.LENGTH_LONG)
+                        .setAction("Regreat", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Snackbar snackbar1 = Snackbar.make(mLayout, "Item not copied", Snackbar.LENGTH_SHORT);
+                                Snackbar snackbar1 = Snackbar.make(mLayout, "Copy canceled :c", Snackbar.LENGTH_SHORT);
                                 snackbar1.show();
-                            }
-                        });
-
+                                }
+                            });
                 snackbar.show();
-
-
                 return true;
-
-            case R.id.item2:
-                Toast toast2 =
-                        Toast.makeText(this, "Item download", Toast.LENGTH_SHORT);
-                toast2.show();
-                return true;
-
-            default:
+                case R.id.menu_download:
+                    Toast toast2 =
+                            Toast.makeText(this, "Image downloaded succesfully!!", Toast.LENGTH_SHORT);
+                    toast2.show();
+                    return true;
+                default:
         }
         return super.onContextItemSelected(item);
     }

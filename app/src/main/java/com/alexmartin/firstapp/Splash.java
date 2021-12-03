@@ -42,7 +42,7 @@ public class Splash extends AppCompatActivity {
                 .load("https://1.bp.blogspot.com/-XBOvQhJ4e3E/YINVEJxvRyI/AAAAAAAAATo/S-PlEpwNLzs250tmpWEzkmiLt_Fbeu5UACLcBGAsYHQ/s476/Nyan%2Bcat.gif")
           //     .load(R.drawable.girl)
                 .transition(DrawableTransitionOptions.withCrossFade(10))
-               .centerCrop()
+                .centerCrop()
                 .placeholder(new ColorDrawable(this.getResources().getColor(R.color.azul)))
 //                .circleCrop()
                 .into(mSea);
