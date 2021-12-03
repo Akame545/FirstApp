@@ -1,5 +1,5 @@
 # FirstApp
-![Animacion](AnimationApp.gif)
+![Animacion](AnimationFunction.gif)
 Gif resumen de la aplicación.
 ##Icono
 El icono es un pequeño mando azul con un fondo en un tono naranja tirando a oscuro.
