@@ -26,7 +26,9 @@ Encima de nuestras fotos de gatitos vemos una barra horizontal de tono anaranjad
 ![Menu](menu.png)
 Si clickamos en la personita de arriba a la derecha, se abre una alerta en cual nos da tres opciones bastantes descriptivas por sus titulos.
 ![AlertP](alerta_persona.png)
-Al hacer click en los tres puntitos de arriba a la derecha se nos abre otro menu el cual nos da otras opciones, la opcion de signout nos abre una alerta[alerta](AlertP) parecida a la descrita anteriormente.
+Al hacer click en los tres puntitos de arriba a la derecha se nos abre otro menu el cual nos da otras opciones.
+![AlertS](menu_puntos.png)
+La opcion de signout nos abre una alerta[alerta](AlertP) parecida a la descrita anteriormente.
 ![AlertS](alerta_signout.png)
 Muchas de estas opciones como descargar, about us ... nos muestra un pequeño toast ubicado en la parte inferior de la pantalla.
 ![Toast](toast.png)
@@ -37,5 +39,6 @@ al seleccionar copiar, se nos habrira una snackbar con la cual podemos deshacer 
 ![Snackbar](snackbar.png)
 ##Signup
 Tanto en el boton de "*register now!*" como si clickamos en los multiples signout nos llevara a la activity de registro, la cual consta de tres campos editables, el mismo botón y el mismo gradient de fondo que en la pestaña login.
+![Signout](signout.png)
 ##Autor
 Alejandro Martín, estudiante de desarrollo de aplicaciones multiplataforma en el IES Juan de la Cierva.
