@@ -29,6 +29,7 @@ La primera activity que vemos es la de login, una interfaz básica con dos campo
 ![Login](capturas/login.png)
 
 También podemos observar el fondo, que no destaca mucho (no es su función), pero deja un rastro un tanto elegante, es un gradient que esta determinado desde el azul hasta el negro.
+
 ![Gradient](capturas/gradient.png)
 
 En esta ventana tambien encontramos los primeros rastros de la tipografía ubicados en el botón Comfortaa.
@@ -69,7 +70,7 @@ Muchas de estas opciones como descargar, about us ... nos muestra un pequeño to
 
 En el main tambien puedes mantener pulsado para que te salga otra alerta la cual te da las opciones de copiar o descargar.
 
-![AlertL](capturas/alerta_long.png)
+![AlertL](capturas/alerta_longclick.png)
 
 al seleccionar copiar, se nos habrira una snackbar con la cual podemos deshacer los cambios de forma sencilla.
 
