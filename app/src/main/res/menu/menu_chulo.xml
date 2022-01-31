@@ -8,14 +8,18 @@
         android:icon="@drawable/ic_person"
         app:showAsAction="ifRoom|withText" />
     <item
-        android:id="@+id/menu_aboutus"
-        android:title="About us"
-        android:fontFamily="@font/comfortaa_regular"
-        app:showAsAction="never" />
-
-    <item
         android:id="@+id/menu_singout"
         android:title="Signout"
+        android:fontFamily="@font/comfortaa_regular"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/bottom_bar"
+        android:title="Bottom Bar"
+        android:fontFamily="@font/comfortaa_regular"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/bottom_navigation"
+        android:title="Bottom Navigation"
         android:fontFamily="@font/comfortaa_regular"
         app:showAsAction="never" />
 </menu>

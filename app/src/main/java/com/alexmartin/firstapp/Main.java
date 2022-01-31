@@ -54,12 +54,16 @@ public class Main extends AppCompatActivity {
             case R.id.menu_user:
                 showAlertDialogButtonClickedUser(Main.this);
                 break;
-            case R.id.menu_aboutus:
-                Toast toast1 = Toast.makeText(this, "Work-in-progress", Toast.LENGTH_SHORT);
-                toast1.show();
+            case R.id.bottom_bar:
+                Intent intent = new Intent(Main.this, Bar.class);
+                startActivity(intent);
                 break;
             case R.id.menu_singout:
                 showAlertDialogButtonClicked(Main.this);
+                break;
+            case R.id.bottom_navigation:
+                Intent intent2 = new Intent(Main.this, Navigation.class);
+                startActivity(intent2);
                 break;
         }
         return super.onOptionsItemSelected(item);
